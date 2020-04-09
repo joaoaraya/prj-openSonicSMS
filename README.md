@@ -2,7 +2,7 @@
 
 Sonic The Hedgehog - Master System Engine by João Araya 
 
-~ All code was written em GML (c/c++ based) with comments and variables in English ~
+~ All code was written in GML (c/c++ based) with comments and variables in English ~
 
 **** Work on Game Maker Studio 1.3 or higher ****
 
