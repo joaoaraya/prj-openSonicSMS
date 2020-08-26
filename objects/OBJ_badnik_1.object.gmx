@@ -31,19 +31,9 @@
 instance_create(x,y,OBJ_explosion);
 
 // Player Jump
-with(OBJ_player_sonic)
+with(OBJ_player_char)
 {
-    if (global.superSonic == false &amp;&amp; global.playerJump == true)
-    {
-        if (vspeed &gt; 0) 
-        {
-            vspeed = -vspeed*1.1;
-        }
-        if (vspeed &lt; 0) 
-        {
-            vspeed = +vspeed*1.1;
-        }
-    }
+    SCR_physics_jump_objects();
 }
 </string>
           </argument>

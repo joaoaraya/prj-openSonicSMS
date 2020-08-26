@@ -95,6 +95,26 @@ alarm[3] = 40;
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Actions part 2</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -109,7 +129,7 @@ alarm[3] = 40;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Actions Part II
+            <string>/// Sfx and Values
 
 //------------ EGGMAN ----------------
 
@@ -129,7 +149,7 @@ if (plateAction == 1)
     {
         //audio_play_sound(SFX_bumper, 10, false);
     }
-    // special_stage = true;
+    // global.specialStage = true;
 }
 
 //------------ EXTRA LIFE ----------------
@@ -161,6 +181,26 @@ if (plateAction == 3)
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Actions part 1</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -175,33 +215,120 @@ if (plateAction == 3)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Actions Part I
+            <string>/// Sprites
 
-// Sprite
-sprite_index = SPR_plate_action;
-image_index = plateAction;
+if (plateAction == 2)
+{
+    sprite_index = SPR_plate_extra_life;
+    image_index = global.player-1;
+}
+else
+{
+    sprite_index = SPR_plate_action;
+    image_index = plateAction;
+}
 image_speed = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Sfx
 
-// Music
 if (global.music == 1)
 {
     audio_stop_all();
     audio_play_sound(SFX_plate_action, 10, false);
     audio_play_sound(SND_plate_finish, 10, false);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Lost powers
 
-// Powers Off
 with (OBJ_power_invincibility) 
 {
     instance_destroy();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Reset CheckPoint
 
-// Reset CheckPoint
 global.checkPoint = false;
 global.checkPointX = 0;
 global.checkPointY = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Times to...
 
-// Times
 alarm[1] = 20; // Go to Part II
 alarm[2] = 180; // Transition Fade-out
 </string>
@@ -428,19 +555,19 @@ if (global.playerPlate == true &amp;&amp; plateStep == 2)
 
 if (global.playerPlate == true &amp;&amp; plateStep &gt; 1)
 {
-    with(OBJ_player_sonic) 
+    with(OBJ_player_char) 
     {
-        instance_change(OBJ_player_sonic_plate, true);
+        instance_change(OBJ_player_plate, true);
     }
-    with(OBJ_player_sonic_spin) 
+    with(OBJ_player_char_spin) 
     {
-        instance_change(OBJ_player_sonic_plate, true);
+        instance_change(OBJ_player_plate, true);
     }
     
-    // If Super Sonic is true
-    if (global.superSonic == true)
+    // If Super player is true
+    if (global.playerSuper == true)
     {
-        global.superSonic = false;
+        global.playerSuper = false;
     }
 }
 </string>
@@ -489,7 +616,7 @@ global.playerPlate = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Powers off
+            <string>/// Lost powers
 
 with(OBJ_power_invincibility) 
 {

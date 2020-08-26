@@ -108,39 +108,7 @@ if (instance_exists(OBJ_player))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (upward == true)
-{
-    // Spring out of water
-    if (global.playerWater == false) 
-    {
-        global.jumpSpringMax = jump;
-    }
-    // Spring Underwater
-    if (global.playerWater == true)
-    {
-        global.jumpSpringMax = jump/2;
-    }
-    
-    with(OBJ_player_sonic)
-    {
-        // Variables
-        global.playerJump = true;
-        global.playerJumpSpring = true;
-        vspeed = global.jumpSpringMax;
-        // Sprite
-        sprite_index = SPR_player_jump;
-        image_speed = 0.4;
-        // Music
-        if (global.music == 1)
-        {
-            if (audio_is_playing(SFX_sonic_spring))
-            {
-                audio_stop_sound(SFX_sonic_spring);
-            }
-            audio_play_sound(SFX_sonic_spring, 10, false);
-        }
-    }
-}
+            <string>SCR_physics_spring();
 </string>
           </argument>
         </arguments>

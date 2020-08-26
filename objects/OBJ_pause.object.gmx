@@ -30,6 +30,8 @@
 fade = "out";
 alpha = 0;
 press = false;
+
+pause = false;
 </string>
           </argument>
         </arguments>
@@ -54,7 +56,7 @@ press = false;
 
 SCR_buttons();
 
-alarm[0] = 5; //Go to action
+alarm[0] = 2; // Pause
 </string>
           </argument>
         </arguments>
@@ -81,6 +83,7 @@ alarm[0] = 5; //Go to action
 
 instance_deactivate_all(true);
 audio_pause_all();
+pause = true;
 </string>
           </argument>
         </arguments>
@@ -169,7 +172,7 @@ SCR_buttons();
             <kind>1</kind>
             <string>/// Exit
 
-if (global.btStartPress &amp;&amp; press == false)
+if (global.btStartPress &amp;&amp; press == false &amp;&amp; pause == true)
 {
     instance_activate_all();
     audio_resume_all();

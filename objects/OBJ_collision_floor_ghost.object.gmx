@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>OBJ_collision_floor</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="3" enumb="2">
@@ -33,7 +33,7 @@ if (instance_exists(OBJ_player))
     {
         solid = false;
     }
-    if (y-10 &gt; OBJ_player.y)
+    if (y-12 &gt; OBJ_player.y)
     {
         solid = true;
     }

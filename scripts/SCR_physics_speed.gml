@@ -53,7 +53,11 @@ if (hspeed > 0 && hspeed < 4 || hspeed < 0 && hspeed > -4)
 }
 
 // Sprites (Frames)
-if (global.playerJump == false && !place_meeting(x+hspeed, y, OBJ_collision_wall))
+if (global.playerJump == false && global.playerSpinDash == false //Not jumping
+    && !place_meeting(x+hspeed, y, OBJ_collision_wall) //Not wall
+    && !place_meeting(x+hspeed, y, OBJ_monitors) //Not monitors
+    && !(x-9+hspeed < view_xview[0] || x+6+hspeed > view_xview[0]+view_wview[0]) //Not view margin
+    && !(x+9+hspeed <= 9 || x+hspeed >= room_width-9)) //Not room margin
 {
     // Walk
     if (hspeed > 0 && hspeed < 7 || hspeed < 0 && hspeed > -7)
@@ -69,17 +73,21 @@ if (global.playerJump == false && !place_meeting(x+hspeed, y, OBJ_collision_wall
     }
 }
 
+
 // ---- Spin jump ----
 
-if (global.playerJump == true && global.playerJumpSpring == false)
+if (global.playerJump == true && global.playerJumpSpring == false && 
+    global.playerFly == false)
 {
     sprite_index = SPR_player_spin;
     image_speed = 0.65;
 }
 
+
 // ---- Spring Jump ----
 
-if (global.playerJump == true && global.playerJumpSpring == true)
+if (global.playerJump == true && global.playerJumpSpring == true &&
+    global.playerFly == false)
 {
     // Jump
     if (vspeed < 0)
@@ -93,4 +101,13 @@ if (global.playerJump == true && global.playerJumpSpring == true)
         sprite_index = SPR_player_walk;
         image_speed = 0.4;
     }
+}
+
+
+// ---- Tails Fly ----
+if (global.playerJump == true && global.playerJumpSpring == false &&
+    global.playerFly == true && global.player == 2)
+{
+    sprite_index = SPR_player_fly;
+    image_speed = 0.65;
 }

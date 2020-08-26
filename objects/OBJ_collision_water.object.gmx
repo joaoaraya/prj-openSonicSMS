@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>onWater = false;
+            <string>/// Variables
+
+onWater = false;
 </string>
           </argument>
         </arguments>
@@ -48,9 +50,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_exists(OBJ_player))
+            <string>/// Water
+
+if (instance_exists(OBJ_player))
 {
-    // Underwater
+    // In
     if (place_meeting(x,y+vspeed,OBJ_player) &amp;&amp; global.playerWater == false)
     {
         global.playerWater = true;
@@ -65,18 +69,15 @@
         }
         onWater = true;
     }
-    // Out of water
-    if (!place_meeting(x,y+vspeed,OBJ_player) &amp;&amp; OBJ_player.y &lt; y &amp;&amp; global.playerWater = true &amp;&amp; onWater == true)
+    // Out
+    if (!place_meeting(x,y+vspeed,OBJ_player) &amp;&amp; OBJ_player.y &lt; y &amp;&amp;
+        global.playerWater == true &amp;&amp; onWater == true)
     {
         global.playerWater = false;
-        
-        with (OBJ_player) 
-        {
-            vspeed += vspeed/2;
-        }
         onWater = false;
     }
 }
+
 </string>
           </argument>
         </arguments>

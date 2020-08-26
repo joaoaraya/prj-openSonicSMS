@@ -50,7 +50,6 @@ destroy = false;
             <kind>1</kind>
             <string>/// Sprite
 
-sprite_index = SPR_monitor_checkpoint;
 image_speed = 2.3;
 </string>
           </argument>
@@ -82,16 +81,9 @@ global.checkPointX = x+11; // Coordinate X to create the player
 global.checkPointY = y-11; // Coordinate Y to create the player
 
 // Player Jump
-with(OBJ_player)
+with(OBJ_player_char)
 {
-    if (vspeed &gt; 0) 
-    {
-        vspeed = -vspeed * 1.1;
-    }
-    if (vspeed &lt; 0) 
-    {
-        vspeed = +vspeed * 1.1;
-    }
+    SCR_physics_jump_objects();
 }
 
 // Effects
@@ -156,22 +148,7 @@ if instance_exists(OBJ_player)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Player Collision...
-
-// With spin dash/attack
-if (global.playerJump == true || global.playerSpinDash == true &amp;&amp;
-    global.playerJumpSpring == false || instance_exists(OBJ_player_sonic_spin))
-{
-    instance_destroy();
-    solid = false;
-}
-
-// With walk/run
-if (global.playerJump == false || global.playerJumpSpring == true || 
-    !instance_exists(OBJ_player_sonic_spin || global.playerSpinDash == false))
-{
-    solid = true;
-}
+            <string>SCR_monitor_collisions();
 </string>
           </argument>
         </arguments>

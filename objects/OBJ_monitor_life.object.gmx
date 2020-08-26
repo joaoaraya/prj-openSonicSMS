@@ -50,7 +50,7 @@ destroy = false;
             <kind>1</kind>
             <string>/// Sprite
 
-sprite_index = SPR_monitor_life;
+
 image_speed = 2.3;
 </string>
           </argument>
@@ -80,16 +80,9 @@ image_speed = 2.3;
 global.life += 1;
 
 // Player Jump
-with(OBJ_player)
+with(OBJ_player_char)
 {
-    if (vspeed &gt; 0) 
-    {
-        vspeed = -vspeed * 1.1;
-    }
-    if (vspeed &lt; 0) 
-    {
-        vspeed = +vspeed * 1.1;
-    }
+    SCR_physics_jump_objects();
 }
 
 // Effects
@@ -159,22 +152,35 @@ if instance_exists(OBJ_player)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Player Collision...
+            <string>SCR_monitor_collisions();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Players icons
 
-// With spin dash/attack
-if (global.playerJump == true || global.playerSpinDash == true &amp;&amp;
-    global.playerJumpSpring == false || instance_exists(OBJ_player_sonic_spin))
-{
-    instance_destroy();
-    solid = false;
-}
+draw_rectangle_colour(x+2, y+2, x+20, y+17, c_white, c_white, c_white, c_white, false);
+draw_sprite(SPR_icon_players, global.player-1, x+3, y+1);
 
-// With walk/run
-if (global.playerJump == false || global.playerJumpSpring == true || 
-    !instance_exists(OBJ_player_sonic_spin || global.playerSpinDash == false))
-{
-    solid = true;
-}
+draw_self();
 </string>
           </argument>
         </arguments>

@@ -31,15 +31,15 @@ vx = view_xview[0] + view_wview[0] - 66;
 vy = view_yview[0] + 14;
 
 // Player
-if (global.superSonic == true)
+draw_sprite(SPR_icon_life, 0, vx, vy);
+
+if (global.playerSuper == true)
 {
-    draw_sprite(SPR_icon_life_super_sonic, -1, vx, vy);
-    image_speed = 0.4;
+    draw_sprite(SPR_icon_players_super, global.player-1, vx, vy);
 } 
 else
 {
-    draw_sprite(SPR_icon_life_sonic, -1, vx, vy);
-    image_speed = 0;
+    draw_sprite(SPR_icon_players, global.player-1, vx, vy);
 }
 
 // Separator

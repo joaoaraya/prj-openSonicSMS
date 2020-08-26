@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>--- Start Global Vars ---</string>
+            <string>Start global variables</string>
           </argument>
         </arguments>
       </action>
@@ -45,10 +45,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Variables System
+            <string>/// System
 
-global.buttons = 1; //Show touch buttons (0 = off / 1 = on)
-global.music = 1; //Play music (0 = off / 1 = on)
+global.screenSize = 1; //0 = Auto Size, 1 = Widescreen (16:9), 2 = Retro (4:3)
+global.windowSize = 3; // Window size (multiplication) ex: 1x, 2x, 3x..
+global.buttons = 1; // Show touch buttons (0 = off / 1 = on)
+global.music = 1; // Play music (0 = off / 1 = on)
 </string>
           </argument>
         </arguments>
@@ -69,27 +71,35 @@ global.music = 1; //Play music (0 = off / 1 = on)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Variables Player
+            <string>/// Player
 
-global.valGravity = 0.9; // Gravity
-global.valSpeed = 0.12; // Speed you add when you walk
-global.valSpeedMax = 8; // Speed limit
-global.valJumpMax = 12.5; // Jump pressure
-global.valVspeed = 16; // Drop limit
+// Characters
+global.player = 1; // 1 = Sonic / 2 = Tails / 3 = Knuckles
 
-global.playerSprite = 0; // Labyrinth Colors Palete Example (0 = normal / 1 = labyrinth)
-global.playerBlink = false // Lost rings invincibility
-global.superSonic = false; // Super Sonic (On / Off)
-global.playerWater = false; // If Sonic is underwater
-global.playerJump = false; // If Sonic is jumping
-global.playerJumpSpring = false; // If Sonic is jumping in the spring
-global.playerSpinDash = false; // If Sonic Spin Dash is true
-global.playerSpinSpeed = 0; // Spin Dash Release Speed
+// Phisics
+global.valGravity = 0; // Gravity
+global.valSpeed = 0; // Speed you add when you walk
+global.valSpeedMax = 0; // Speed limit
+global.valJumpMax = 0; // Jump pressure
+global.valVspeed = 0; // Drop limit
+global.valSpinSpeed = 0; // Spin Dash Release Speed
 
-global.monitorJump = 0; // Jump height when you destroy the monitor
+// Object Physics
 global.jumpSpringMax = 0; // Spring height limit
+global.monitorJump = 0; // Jump height when you destroy the monitor
 
-global.playerPlate = false; // If plate finish is true
+// Actions
+global.playerBlink = false; // Lost rings invincibility
+global.playerSuper = false; // If player is a Super 
+global.playerWater = false; // If player is underwater
+global.playerJump = false; // If player is jumping
+global.playerJumpSpring = false; // If player is jumping in the spring
+global.playerSpinDash = false; // If player Spin Dash is true
+global.playerFly = false; // If player is flying
+global.playerPlate = false; // If goal plate finish is true
+
+// Sprites mode
+global.playerSprite = 0; // Colors palette (0 = normal / 1 = underwater)
 </string>
           </argument>
         </arguments>
@@ -110,7 +120,7 @@ global.playerPlate = false; // If plate finish is true
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Variables Level Objects
+            <string>/// Level Objects
 
 global.life = 3; // Player lifes
 global.ring = 0; // Collected rings
@@ -118,6 +128,8 @@ global.chaoEmerald = 0; // Collected Chao Emeralds
 
 // If you have the power ...
 global.powerShield = false;
+global.powerShieldMagnet = false;
+global.powerShieldFlame = false;
 global.powerInv = false;
 
 global.checkPoint = false; // If you have caught...
@@ -127,117 +139,6 @@ global.checkPointY = 0; // Coordinate Y to create the player
 // Time
 global.seconds = 0;
 global.minutes = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>--- Screen ---</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Screen Config
-
-SCR_screen_adjustment();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>605</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>0</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>--- End ---</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Go to next room
-
-alarm[0] = 15;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Next Room
-
-room_goto_next();
 </string>
           </argument>
         </arguments>

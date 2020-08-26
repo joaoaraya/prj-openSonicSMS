@@ -95,7 +95,7 @@ if (global.playerJump == false)
     {
         y += 2;
     }
-    repeat(11)
+    repeat(14)
     {
         if (place_free(x, y+yRamp)) && !(place_free(x, y+yRamp+1))
         {
