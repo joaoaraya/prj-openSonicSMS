@@ -47,10 +47,21 @@
             <kind>1</kind>
             <string>/// System
 
-global.screenSize = 1; //0 = Auto Size, 1 = Widescreen (16:9), 2 = Retro (4:3)
+// Settings
+global.screenSize = 0; //0 = Auto Size, 1 = Widescreen (16:9), 2 = Retro (4:3)
 global.windowSize = 3; // Window size (multiplication) ex: 1x, 2x, 3x..
 global.buttons = 1; // Show touch buttons (0 = off / 1 = on)
 global.music = 1; // Play music (0 = off / 1 = on)
+global.saveGame = 1; //Memory Card Slot
+global.memoryCards = 5; //How many cards?
+
+// Rotes
+global.zoneGoto = 1; // Zone code
+global.specialStageGoto = 1; // Special Stage code
+
+// Unlocks
+global.specialStage = false; // Go to Special Stage?
+global.allZones = false; // Clear all zones?
 </string>
           </argument>
         </arguments>
@@ -139,6 +150,117 @@ global.checkPointY = 0; // Coordinate Y to create the player
 // Time
 global.seconds = 0;
 global.minutes = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Load data (memory card)</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Settings
+
+// Open Archive
+ini_open ("settings.ini");
+
+// Load Varibles
+global.screenSize = ini_read_real ("system", "screenSize", global.screenSize);
+global.windowSize = ini_read_real ("system", "windowSize", global.windowSize);
+global.buttons = ini_read_real ("system", "buttons", global.buttons);
+global.music = ini_read_real ("system", "music", global.music);
+global.saveGame = ini_read_real ("system", "saveGame", global.saveGame);
+
+// Close Archive
+ini_close ();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Game Slots
+
+// -------------------- Create Data -------------------- 
+
+for (i = 0; i &lt; global.memoryCards; i++)
+{
+    // Open Archive
+    ini_open ("saveGame" + string(i) + ".ini");
+    
+    // Create Sections
+    if !(ini_section_exists("classicMode"))
+    {
+        ini_write_real ("classicMode", "life", global.life);
+        ini_write_real ("classicMode", "chaoEmerald", global.chaoEmerald);
+        ini_write_real ("classicMode", "zoneGoto", global.zoneGoto);
+        ini_write_real ("classicMode", "specialStageGoto", global.specialStageGoto);
+        ini_write_real ("classicMode", "allZones", global.allZones);
+    }
+    
+    // Close Archive
+    ini_close ();
+}
+
+// -------------------- Read Data -------------------- 
+
+// Open Archive
+ini_open ("saveGame" + string(global.saveGame) + ".ini");
+
+// Load Varibles
+global.life = ini_read_real ("classicMode", "life", global.life);
+global.chaoEmerald = ini_read_real ("classicMode", "chaoEmerald", global.chaoEmerald);
+global.zoneGoto = ini_read_real ("classicMode", "zoneGoto", global.zoneGoto);
+global.specialStageGoto = ini_read_real ("classicMode", "specialStageGoto", global.specialStageGoto);
+global.allZones = ini_read_real ("classicMode", "allZones", global.allZones);
+
+// Close Archive
+ini_close ();
 </string>
           </argument>
         </arguments>

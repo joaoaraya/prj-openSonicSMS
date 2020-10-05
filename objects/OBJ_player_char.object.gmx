@@ -1088,7 +1088,7 @@ if (place_meeting(x,y,OBJ_badniks) &amp;&amp; global.playerSuper == false &amp;&
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///APAGAR
+            <string>/// Change Playaer (Debug)
 
 if (global.player &lt; 3)
 {
