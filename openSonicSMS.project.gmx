@@ -31,6 +31,17 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
+    <sprites name="Menus">
+      <sprites name="Title">
+        <sprite>sprites\SPR_title</sprite>
+      </sprites>
+      <sprites name="Data Select">
+        <sprite>sprites\SPR_data_form</sprite>
+        <sprite>sprites\SPR_data_zones</sprite>
+        <sprite>sprites\SPR_data_icon_life</sprite>
+        <sprite>sprites\SPR_data_icon_emerald</sprite>
+      </sprites>
+    </sprites>
     <sprites name="Player">
       <sprite>sprites\SPR_player_mask</sprite>
       <sprites name="Sonic">
@@ -218,6 +229,7 @@
       <sprite>sprites\SPR_button_dpad_press</sprite>
       <sprite>sprites\SPR_button_action</sprite>
       <sprite>sprites\SPR_button_action_press</sprite>
+      <sprite>sprites\SPR_button_del</sprite>
     </sprites>
     <sprites name="Effects">
       <sprite>sprites\SPR_get_stars</sprite>
@@ -268,6 +280,18 @@
       <object>objects\OBJ_system_start</object>
       <object>objects\OBJ_system_zone</object>
       <object>objects\OBJ_system_save_data</object>
+    </objects>
+    <objects name="Menus">
+      <objects name="Title">
+        <object>objects\OBJ_menu_title</object>
+        <object>objects\OBJ_menu_title_options</object>
+      </objects>
+      <objects name="Options">
+        <object>objects\OBJ_menu_options</object>
+      </objects>
+      <objects name="Data Select">
+        <object>objects\OBJ_menu_data_select</object>
+      </objects>
     </objects>
     <objects name="Controls">
       <object>objects\OBJ_count_rings</object>
@@ -382,8 +406,15 @@
   </timelines>
   <rooms name="rooms">
     <room>rooms\ROM_system_start</room>
-    <room>rooms\ROM_zone_1</room>
-    <room>rooms\ROM_zone_2</room>
+    <rooms name="Menus">
+      <room>rooms\ROM_menu_title</room>
+      <room>rooms\ROM_menu_options</room>
+      <room>rooms\ROM_menu_data_select</room>
+    </rooms>
+    <rooms name="Zones">
+      <room>rooms\ROM_zone_1</room>
+      <room>rooms\ROM_zone_2</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

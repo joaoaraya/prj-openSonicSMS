@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-9999</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,14 +25,58 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Variables
+            <string>///Restart system variables
 
-press_up = 0;
-press_down = 0;
-press_left = 0;
-press_right = 0;
-press_action = 0;
-press_start = 0;
+instance_create(0,0,OBJ_system);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>-------------------------------</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Screen
+
+// Center screen objects
+view_object[0] = self;
+x = 250;
+y = 250;
+
+// Adjusment
+SCR_screen();
 </string>
           </argument>
         </arguments>
@@ -53,34 +97,9 @@ press_start = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Controls
+            <string>/// Fade-In Effect
 
-SCR_buttons();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Controls
-
-SCR_buttons();
+instance_create(0,0,OBJ_effect_fade_in);
 </string>
           </argument>
         </arguments>
@@ -101,18 +120,9 @@ SCR_buttons();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Opacity
+            <string>/// Control and Options
 
-if (global.buttons == 1) 
-{
-    trans1 = 0.35; 
-    trans2 = 0.8;
-}
-else
-{
-    trans1 = 0;
-    trans2 = 0;
-}
+alarm[0] = 15;
 </string>
           </argument>
         </arguments>
@@ -133,88 +143,18 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Animations
+            <string>/// Music
 
-if (global.btUp) 
+if (global.music == 1)
 {
-    press_up = 1;
-}
-if (global.btUpRel) 
-{
-    press_up = 0;
-}
-
-if (global.btDown) 
-{
-    press_down = 1;
-}
-if (global.btDownRel) 
-{
-    press_down = 0;
-}
-
-if (global.btLeft) 
-{
-    press_left = 1;
-}
-if (global.btLeftRel) 
-{
-    press_left = 0;
-}
-
-if (global.btRight) 
-{
-    press_right = 1;
-}
-if (global.btRightRel) 
-{
-    press_right = 0;
-}
-
-if (global.btSpace) 
-{
-    press_action = 1;
-}
-if (global.btSpaceRel) 
-{
-    press_action = 0;
-}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Pause
-
-if (global.btStartPress) 
-{
-    if (!instance_exists(OBJ_pause))
-    {
-        instance_create(0,0,OBJ_pause);
-    }
+    // your code here
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -231,16 +171,32 @@ if (global.btStartPress)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Touch Map
+            <string>/// Buttons
 
-global.virtualUp = virtual_key_add (33, view_hview[0]-89, 26, 32, vk_up);
-global.virtualDown = virtual_key_add (33, view_hview[0]-33, 26, 32, vk_down);
-global.virtualLeft = virtual_key_add (2, view_hview[0]-71, 30, 54, vk_left);
-global.virtualRight = virtual_key_add (60, view_hview[0]-71, 30, 54, vk_right);
-global.virtualSpace = virtual_key_add (view_wview[0]-63, view_hview[0]-65, 50, 50, vk_space);
+instance_create(0,0,OBJ_virtual_controller);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Options
 
-display_set_gui_size (view_wview[0],view_hview[0]);
-
+instance_create(x,y+40,OBJ_menu_title_options);
 </string>
           </argument>
         </arguments>
@@ -263,40 +219,9 @@ display_set_gui_size (view_wview[0],view_hview[0]);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Sprites
+            <string>/// Title
 
-vx = view_xview[0] + xstart;
-vy = view_yview[0] + ystart;
-
-// Buttons
-draw_set_alpha(trans1);
-draw_sprite (SPR_button_dpad, -1, vx+19, vy+view_hview[0]-71);
-draw_sprite (SPR_button_action, -1, vx+view_wview[0]-51, vy+view_hview[0]-54);
-draw_set_alpha(1);
-
-// Press
-draw_set_alpha(trans2);
-if (press_up == 1)
-{
-    draw_sprite (SPR_button_dpad_press, 0, vx+19, vy+view_hview[0]-71);
-}
-if (press_down == 1) 
-{
-    draw_sprite (SPR_button_dpad_press, 1, vx+19, vy+view_hview[0]-71);
-}
-if (press_left == 1)
-{
-    draw_sprite (SPR_button_dpad_press, 2, vx+19, vy+view_hview[0]-71);
-}
-if (press_right == 1) 
-{
-    draw_sprite (SPR_button_dpad_press, 3, vx+19, vy+view_hview[0]-71);
-}
-if (press_action == 1) 
-{
-    draw_sprite (SPR_button_action_press, -1, vx+view_wview[0]-51, vy+view_hview[0]-54);
-}
-draw_set_alpha(1);
+draw_sprite(SPR_title, -1, x, y-65);
 </string>
           </argument>
         </arguments>
@@ -314,8 +239,5 @@ draw_set_alpha(1);
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>0,0</point>
-    <point>141,141</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>
