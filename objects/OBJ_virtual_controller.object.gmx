@@ -107,11 +107,13 @@ if (global.buttons == 1)
 {
     trans1 = 0.35; 
     trans2 = 0.8;
+    trans3 = 1;
 }
 else
 {
     trans1 = 0;
     trans2 = 0;
+    trans3 = 0;
 }
 </string>
           </argument>
@@ -238,6 +240,7 @@ global.virtualDown = virtual_key_add (33, view_hview[0]-33, 26, 32, vk_down);
 global.virtualLeft = virtual_key_add (2, view_hview[0]-71, 30, 54, vk_left);
 global.virtualRight = virtual_key_add (60, view_hview[0]-71, 30, 54, vk_right);
 global.virtualSpace = virtual_key_add (view_wview[0]-63, view_hview[0]-65, 50, 50, vk_space);
+global.virtualEnter = virtual_key_add (view_wview[0]-88, 11, 25, 25, vk_enter);
 
 display_set_gui_size (view_wview[0],view_hview[0]);
 
@@ -296,6 +299,34 @@ if (press_action == 1)
 {
     draw_sprite (SPR_button_action_press, -1, vx+view_wview[0]-51, vy+view_hview[0]-54);
 }
+draw_set_alpha(1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Pause
+
+vx = view_xview[0] + xstart;
+vy = view_yview[0] + ystart;
+
+draw_set_alpha(trans3);
+draw_sprite (SPR_button_pause, -1, vx+view_wview[0]-79, vy+18);
 draw_set_alpha(1);
 </string>
           </argument>

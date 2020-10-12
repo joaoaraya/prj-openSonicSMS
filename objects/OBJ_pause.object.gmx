@@ -31,7 +31,34 @@ fade = "out";
 alpha = 0;
 press = false;
 
+option = 1;
 pause = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Colors
+
+c1 = c_white;
+c2 = c_white;
+
+c_yellow_dark = make_colour_rgb(255,201,14);
 </string>
           </argument>
         </arguments>
@@ -57,6 +84,91 @@ pause = false;
 SCR_buttons();
 
 alarm[0] = 2; // Pause
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Load Icon + Zone Names
+
+SCR_load_cards();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Buttons
+
+press_up = 0;
+press_down = 0;
+press_action = 0;
+
+// Opacidade
+if (global.buttons == 1) 
+{
+    trans1 = 0.15; 
+    trans2 = 0.8;
+}
+else
+{
+    trans1 = 0;
+    trans2 = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Back to menu
+
+room_goto(ROM_menu_title);
 </string>
           </argument>
         </arguments>
@@ -149,7 +261,52 @@ if (fade == "in")
             <kind>1</kind>
             <string>/// Controls
 
+// Selected Colors
+switch(option)
+{
+    case 1:
+        c1 = c_yellow_dark;
+        c2 = c_white;
+        break;
+    case 2:
+        c1 = c_white;
+        c2 = c_yellow_dark;
+        break;
+}
+
+// Limits
+if (option &gt; 2)
+{
+    option = 1;
+}
+
+// Buttons
 SCR_buttons();
+
+if (global.btUpPress || global.btDownPress) 
+{
+    option++;
+}
+
+// Actions
+if (global.btSpacePress &amp;&amp; press == false)
+{
+    // Resume
+    if (option == 1 &amp;&amp; pause == true)
+    {
+        instance_activate_all();
+        audio_resume_all();
+        fade = "in";
+        press = true;
+    }
+    // Back to menu
+    if (option == 2)
+    {
+        alarm[1] = 8;
+        press = true;
+    }
+}
+
 </string>
           </argument>
         </arguments>
@@ -170,14 +327,33 @@ SCR_buttons();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Exit
+            <string>/// Buttons Press Animation
 
-if (global.btStartPress &amp;&amp; press == false &amp;&amp; pause == true)
+if (global.btUp) 
 {
-    instance_activate_all();
-    audio_resume_all();
-    fade = "in";
-    press = true;
+    press_up = 1;
+}
+if (global.btUpRel) 
+{
+    press_up = 0;
+}
+
+if (global.btDown) 
+{
+    press_down = 1;
+}
+if (global.btDownRel) 
+{
+    press_down = 0;
+}
+
+if (global.btSpace) 
+{
+    press_action = 1;
+}
+if (global.btSpaceRel) 
+{
+    press_action = 0;
 }
 </string>
           </argument>
@@ -201,9 +377,146 @@ if (global.btStartPress &amp;&amp; press == false &amp;&amp; pause == true)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(alpha);
+            <string>/// Black Background
+
+draw_set_alpha(alpha);
 draw_sprite_stretched (SPR_black_screen, -1, view_xview[0], view_yview[0], 1000, 1000);
 draw_set_alpha(1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Transition Effect
+
+if (fade == "in") exit;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Icon + Zone Name
+
+font = font_add_sprite(SPR_font_system,46,true,2);
+draw_set_font(font);
+    
+draw_sprite(SPR_data_zones,loadIcon,view_xview[0]+(view_wview[0]/2),view_yview[0]+52);
+draw_sprite_ext(SPR_data_form_2,-1,view_xview[0]+(view_wview[0]/2),view_yview[0]+50,1,1,0,c_yellow_dark,1);
+draw_set_halign(fa_center);
+draw_set_colour(c_yellow_dark);
+draw_text(view_xview[0]+view_wview[0]/2,view_yview[0]+100,loadZone);
+draw_set_colour(c_white);
+draw_set_halign(fa_left);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Options
+
+font = font_add_sprite(SPR_font_system,46,false,1);
+draw_set_font(font);
+
+draw_set_halign(fa_center);
+draw_set_colour(c1);
+draw_text(view_xview[0]+view_wview[0]/2, view_yview[0]+view_hview[0]-60, "resume game");
+draw_set_colour(c2);
+draw_text(view_xview[0]+view_wview[0]/2, view_yview[0]+view_hview[0]-45, "back to menu");
+draw_set_colour(c_white);
+draw_set_halign(fa_left);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Buttons
+
+vx = view_xview[0] + xstart;
+vy = view_yview[0] + ystart;
+
+draw_set_alpha(trans1);
+draw_sprite (SPR_button_dpad, -1, vx+19, vy+view_hview[0]-71);
+draw_sprite (SPR_button_action, -1, vx+view_wview[0]-51, vy+view_hview[0]-54);
+draw_set_alpha(1);
+    
+// Press
+draw_set_alpha(trans2);
+
+if (press_up == 1)
+{
+    draw_sprite (SPR_button_dpad_press, 0, vx+19, vy+view_hview[0]-71);
+}
+if (press_down == 1)
+{
+    draw_sprite (SPR_button_dpad_press, 1, vx+19, vy+view_hview[0]-71);
+}
+if (press_action == 1)
+{
+    draw_sprite (SPR_button_action_press, -1, vx+view_wview[0]-51, vy+view_hview[0]-54);
+}
+
+draw_set_alpha(1);
+
 </string>
           </argument>
         </arguments>

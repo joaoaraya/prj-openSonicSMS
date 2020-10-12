@@ -133,7 +133,15 @@ else
 }
 
 // If Shield is true
-if (global.powerShield == true)
+if (global.powerShieldFlame == true)
+{
+    instance_create(OBJ_player.x, OBJ_player.y, OBJ_power_shield_flame);
+}
+else if (global.powerShieldMagnet == true)
+{
+    instance_create(OBJ_player.x, OBJ_player.y, OBJ_power_shield_magnet);
+}
+else if (global.powerShield == true)
 {
     instance_create(OBJ_player.x, OBJ_player.y, OBJ_power_shield);
 }

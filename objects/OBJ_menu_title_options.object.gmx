@@ -51,7 +51,7 @@ press = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// New colors
+            <string>/// Colors
 
 c_yellow_dark = make_colour_rgb(255,201,14);
 </string>
@@ -76,7 +76,7 @@ c_yellow_dark = make_colour_rgb(255,201,14);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Goto Options
+            <string>/// Go To Options
 
 room_goto(ROM_menu_options);
 </string>
@@ -101,7 +101,7 @@ room_goto(ROM_menu_options);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Goto data select
+            <string>/// Go To Data Select
 
 room_goto(ROM_menu_data_select);
 </string>
@@ -171,7 +171,7 @@ if (option &lt; 1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Color (selected)
+            <string>///Color Selected
 
 if (option == 1) 
 {
@@ -210,7 +210,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Actions (goto)
+            <string>/// Actions (Go to...)
 
 if (global.btSpacePress &amp;&amp; press == false)
 {

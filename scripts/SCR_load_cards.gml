@@ -1,6 +1,6 @@
 /// Load data icons and zones names
 
-if (global.allZones == false)
+if (global.allZones == false || instance_exists(OBJ_pause))
 {
     switch(global.zoneGoto)
     {

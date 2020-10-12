@@ -25,61 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Variables
+            <string>/// Center Screen
 
-press = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// New colors
-
-c_yellow_dark = make_colour_rgb(255,201,14);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Screen
-
-// Center screen objects
-view_object[0] = self;
-x = 250;
-y = 250;
-
-// Adjusment
 SCR_screen();
+
+view_object[0] = self;
+
+x = 250;
+y = room_height/2;
 </string>
           </argument>
         </arguments>
@@ -123,7 +76,53 @@ instance_create(0,0,OBJ_effect_fade_in);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Control + Data slots
+            <string>///Variables
+
+press = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Colors
+
+c_yellow_dark = make_colour_rgb(255,201,14);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Time to create Buttons + Data Slots
 
 alarm[0] = 15;
 </string>
@@ -148,15 +147,9 @@ alarm[0] = 15;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Go to Zone (Rotes)
+            <string>/// Go To Zone... (Rotes)
 
-switch (global.zoneGoto)
-{
-    case 1: room_goto(ROM_zone_1); break;
-    case 2: room_goto(ROM_zone_2); break;
-    
-    default: game_restart(); break; // Error
-}
+SCR_zone_goto();
 </string>
           </argument>
         </arguments>
@@ -179,7 +172,7 @@ switch (global.zoneGoto)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Fade-out
+            <string>/// Fade-out Effect
 
 instance_create(0,0,OBJ_effect_fade_out);
 </string>
@@ -206,7 +199,7 @@ instance_create(0,0,OBJ_effect_fade_out);
             <kind>1</kind>
             <string>/// Buttons
 
-instance_create(0,0,OBJ_virtual_controller);
+instance_create(0,0,OBJ_virtual_controller_menus);
 instance_create(0,0,OBJ_menu_data_button_del);
 </string>
           </argument>
@@ -261,7 +254,6 @@ instance_create(x+65*4,y,OBJ_menu_data_card_5);
 
 SCR_buttons();
 
-
 // Up, Down
 if (global.btLeftPress)
 {
@@ -271,7 +263,6 @@ if (global.btRightPress)
 {
     global.saveGame += 1;
 }
-
 
 // Limit
 if (global.saveGame &gt; global.memoryCards) 
@@ -302,7 +293,7 @@ if (global.saveGame &lt; 1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Save Slot Select
+            <string>/// Save Slot Selected
 
 if (global.btLeftPress || global.btRightPress)
 {
@@ -335,12 +326,12 @@ if (global.btLeftPress || global.btRightPress)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Go to zone
+            <string>/// Go To Zone
 
 if (global.btSpacePress &amp;&amp; press == false)
 {
-    alarm[1] = 2; // fade
-    alarm[2] = 30; // go to..
+    alarm[1] = 2; // fade-out
+    alarm[2] = 30; // go to zone...
     press = true;
 }
 </string>

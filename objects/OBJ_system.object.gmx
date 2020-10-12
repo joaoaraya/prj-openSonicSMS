@@ -62,6 +62,11 @@ global.specialStageGoto = 1; // Special Stage code
 // Unlocks
 global.specialStage = false; // Go to Special Stage?
 global.allZones = false; // Clear all zones?
+
+// Points
+score = 0;
+global.ringBonus = 0;
+global.timeBonus = 0;
 </string>
           </argument>
         </arguments>
@@ -236,6 +241,7 @@ for (i = 0; i &lt; global.memoryCards; i++)
     {
         ini_write_real ("classicMode", "life", global.life);
         ini_write_real ("classicMode", "chaoEmerald", global.chaoEmerald);
+        ini_write_real ("classicMode", "score", score);
         ini_write_real ("classicMode", "zoneGoto", global.zoneGoto);
         ini_write_real ("classicMode", "specialStageGoto", global.specialStageGoto);
         ini_write_real ("classicMode", "allZones", global.allZones);

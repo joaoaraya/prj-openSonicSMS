@@ -219,7 +219,7 @@ if (global.life &gt; 0)
 }
 else
 {
-    game_restart(); //Game Over
+    room_goto(ROM_menu_game_over);
 }
 </string>
           </argument>

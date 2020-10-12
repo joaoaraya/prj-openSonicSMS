@@ -56,9 +56,9 @@ plateStep = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// "Go to Sonic Has Passed"
+            <string>/// Go To Point Counter "Sonic Has Passed"
 
-room_goto_next();
+room_goto(ROM_menu_point_counter);
 </string>
           </argument>
         </arguments>
@@ -81,11 +81,31 @@ room_goto_next();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Fade-out
+            <string>/// Fade-out Effect
 
 instance_create(0,0,OBJ_effect_fade_out);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Time to Point Counter
 
-// Time to next room
 alarm[3] = 40; 
 </string>
           </argument>
@@ -147,9 +167,9 @@ if (plateAction == 1)
 {
     if (global.music == 1) 
     {
-        //audio_play_sound(SFX_bumper, 10, false);
+        audio_play_sound(SFX_bumper, 10, false);
     }
-    // global.specialStage = true;
+    global.specialStage = true;
 }
 
 //------------ EXTRA LIFE ----------------
@@ -509,10 +529,10 @@ if (global.playerPlate == true &amp;&amp; plateStep == 2)
     
     //------------ SPECIAL STAGE ----------------
     
-    if (global.ring &gt; 49 &amp;&amp; global.chaoEmerald &lt; 7)
-    {
-        plateAction = 1;
-    }
+    //if (global.ring &gt; 49 &amp;&amp; global.chaoEmerald &lt; 7)
+    //{
+        //plateAction = 1;
+    //}
 
     //------------ EXTRA LIFE ----------------
     

@@ -68,15 +68,14 @@ instance_create(0,0,OBJ_system);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Screen
+            <string>/// Center Screen
 
-// Center screen objects
-view_object[0] = self;
-x = 250;
-y = 250;
-
-// Adjusment
 SCR_screen();
+
+view_object[0] = self;
+
+x = room_width/2;
+y = room_height/2;
 </string>
           </argument>
         </arguments>
@@ -120,7 +119,7 @@ instance_create(0,0,OBJ_effect_fade_in);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Control and Options
+            <string>/// Time to create Buttons + Options
 
 alarm[0] = 15;
 </string>
@@ -173,7 +172,7 @@ if (global.music == 1)
             <kind>1</kind>
             <string>/// Buttons
 
-instance_create(0,0,OBJ_virtual_controller);
+instance_create(0,0,OBJ_virtual_controller_menus);
 </string>
           </argument>
         </arguments>
@@ -219,7 +218,7 @@ instance_create(x,y+40,OBJ_menu_title_options);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Title
+            <string>/// Title Screen
 
 draw_sprite(SPR_title, -1, x, y-65);
 </string>

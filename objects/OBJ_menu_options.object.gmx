@@ -25,6 +25,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Center Screen
+
+SCR_screen();
+
+view_object[0] = self;
+
+x = room_width/2;
+y = room_height/2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// Variables
 
 option = 1;
@@ -51,38 +79,9 @@ yy = (room_height/2)+16;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// New colors
+            <string>/// Colors
 
 c_yellow_dark = make_colour_rgb(255,201,14);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Screen
-
-// Center screen objects
-view_object[0] = self;
-x = 250;
-y = 250;
-
-// Adjusment
-SCR_screen();
 </string>
           </argument>
         </arguments>
@@ -126,7 +125,7 @@ instance_create(0,0,OBJ_effect_fade_in);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Control
+            <string>/// Time to create Buttons
 
 alarm[0] = 15;
 </string>
@@ -211,7 +210,7 @@ room_goto(ROM_menu_title);
             <kind>1</kind>
             <string>/// Buttons
 
-instance_create(0,0,OBJ_virtual_controller);
+instance_create(0,0,OBJ_virtual_controller_menus);
 </string>
           </argument>
         </arguments>
@@ -303,7 +302,7 @@ if (option &lt; 1)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Color (selected)
+            <string>///Color Selected
 
 if (option == 1) {c1 = c_yellow_dark;}
 else {c1 = c_white;}

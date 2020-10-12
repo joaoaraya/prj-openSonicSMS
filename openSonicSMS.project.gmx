@@ -5,6 +5,10 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
+    <sounds name="System">
+      <sound>sound\SFX_score1</sound>
+      <sound>sound\SFX_score2</sound>
+    </sounds>
     <sounds name="Player">
       <sound>sound\SFX_sonic_jump</sound>
       <sound>sound\SFX_sonic_spin</sound>
@@ -24,6 +28,7 @@
       <sound>sound\SFX_plate_action</sound>
       <sound>sound\SND_plate_finish</sound>
       <sound>sound\SFX_explosion</sound>
+      <sound>sound\SFX_bumper</sound>
     </sounds>
     <sounds name="Platforms">
       <sound>sound\SFX_platform_bridge</sound>
@@ -32,14 +37,24 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="Menus">
+      <sprites name="Opening">
+        <sprite>sprites\SPR_opening_sega</sprite>
+      </sprites>
       <sprites name="Title">
         <sprite>sprites\SPR_title</sprite>
       </sprites>
       <sprites name="Data Select">
         <sprite>sprites\SPR_data_form</sprite>
+        <sprite>sprites\SPR_data_form_2</sprite>
         <sprite>sprites\SPR_data_zones</sprite>
         <sprite>sprites\SPR_data_icon_life</sprite>
         <sprite>sprites\SPR_data_icon_emerald</sprite>
+      </sprites>
+      <sprites name="Point Counter">
+        <sprite>sprites\SPR_point_counter_text</sprite>
+      </sprites>
+      <sprites name="Game Over">
+        <sprite>sprites\SPR_menu_game_over</sprite>
       </sprites>
     </sprites>
     <sprites name="Player">
@@ -230,6 +245,7 @@
       <sprite>sprites\SPR_button_action</sprite>
       <sprite>sprites\SPR_button_action_press</sprite>
       <sprite>sprites\SPR_button_delete</sprite>
+      <sprite>sprites\SPR_button_pause</sprite>
     </sprites>
     <sprites name="Effects">
       <sprite>sprites\SPR_get_stars</sprite>
@@ -238,17 +254,22 @@
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\BG_trap</background>
+    <backgrounds name="Zone 1">
+      <background>background\BG_zone_1_trap</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="System">
       <script>scripts\SCR_screen.gml</script>
       <script>scripts\SCR_buttons.gml</script>
+      <script>scripts\SCR_zone_goto.gml</script>
+      <script>scripts\SCR_special_stage_goto.gml</script>
     </scripts>
     <scripts name="Data">
       <script>scripts\SCR_load_game.gml</script>
       <script>scripts\SCR_load_cards.gml</script>
+      <script>scripts\SCR_save_game.gml</script>
     </scripts>
     <scripts name="Player">
       <scripts name="View">
@@ -286,6 +307,9 @@
       <object>objects\OBJ_system_save_data</object>
     </objects>
     <objects name="Menus">
+      <objects name="Opening">
+        <object>objects\OBJ_menu_opening</object>
+      </objects>
       <objects name="Title">
         <object>objects\OBJ_menu_title</object>
         <object>objects\OBJ_menu_title_options</object>
@@ -304,11 +328,18 @@
           <object>objects\OBJ_menu_data_card_5</object>
         </objects>
       </objects>
+      <objects name="Point Counter">
+        <object>objects\OBJ_menu_point_counter</object>
+      </objects>
+      <objects name="Game Over">
+        <object>objects\OBJ_menu_game_over</object>
+      </objects>
     </objects>
     <objects name="Controls">
       <object>objects\OBJ_count_rings</object>
       <object>objects\OBJ_count_time</object>
       <object>objects\OBJ_count_lifes</object>
+      <object>objects\OBJ_virtual_controller_menus</object>
       <object>objects\OBJ_virtual_controller</object>
       <object>objects\OBJ_pause</object>
     </objects>
@@ -419,9 +450,12 @@
   <rooms name="rooms">
     <room>rooms\ROM_system_start</room>
     <rooms name="Menus">
+      <room>rooms\ROM_menu_opening</room>
       <room>rooms\ROM_menu_title</room>
       <room>rooms\ROM_menu_options</room>
       <room>rooms\ROM_menu_data_select</room>
+      <room>rooms\ROM_menu_point_counter</room>
+      <room>rooms\ROM_menu_game_over</room>
     </rooms>
     <rooms name="Zones">
       <room>rooms\ROM_zone_1</room>

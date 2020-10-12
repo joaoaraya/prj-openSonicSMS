@@ -710,21 +710,21 @@
     <instance objName="OBJ_collision_platforms" x="4496" y="592" name="inst_3A4FB355" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
-    <tile bgName="BG_trap" x="512" y="352" w="16" h="32" xo="0" yo="0" id="10000001" name="inst_73E3BB1B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="528" y="352" w="16" h="32" xo="0" yo="0" id="10000002" name="inst_2A5D0E33" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="544" y="352" w="16" h="32" xo="0" yo="0" id="10000003" name="inst_1BDCDD30" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="560" y="352" w="16" h="32" xo="0" yo="0" id="10000004" name="inst_03875A5A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="576" y="352" w="16" h="32" xo="0" yo="0" id="10000005" name="inst_EFC38149" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="592" y="352" w="16" h="32" xo="0" yo="0" id="10000006" name="inst_92EFDF8A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="608" y="352" w="16" h="32" xo="0" yo="0" id="10000007" name="inst_A2F04F20" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="624" y="352" w="16" h="32" xo="0" yo="0" id="10000008" name="inst_6253D98E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="640" y="352" w="16" h="32" xo="0" yo="0" id="10000009" name="inst_98B9E119" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="656" y="352" w="16" h="32" xo="0" yo="0" id="10000010" name="inst_FC29EB13" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="672" y="352" w="16" h="32" xo="0" yo="0" id="10000011" name="inst_188F77B7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="688" y="352" w="16" h="32" xo="0" yo="0" id="10000012" name="inst_1175C476" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="704" y="352" w="16" h="32" xo="0" yo="0" id="10000013" name="inst_B4AEB685" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="720" y="352" w="16" h="32" xo="0" yo="0" id="10000014" name="inst_B8C3C977" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="BG_trap" x="736" y="352" w="16" h="32" xo="0" yo="0" id="10000015" name="inst_EFB670F4" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="512" y="352" w="16" h="32" xo="0" yo="0" id="10000001" name="inst_73E3BB1B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="528" y="352" w="16" h="32" xo="0" yo="0" id="10000002" name="inst_2A5D0E33" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="544" y="352" w="16" h="32" xo="0" yo="0" id="10000003" name="inst_1BDCDD30" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="560" y="352" w="16" h="32" xo="0" yo="0" id="10000004" name="inst_03875A5A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="576" y="352" w="16" h="32" xo="0" yo="0" id="10000005" name="inst_EFC38149" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="592" y="352" w="16" h="32" xo="0" yo="0" id="10000006" name="inst_92EFDF8A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="608" y="352" w="16" h="32" xo="0" yo="0" id="10000007" name="inst_A2F04F20" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="624" y="352" w="16" h="32" xo="0" yo="0" id="10000008" name="inst_6253D98E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="640" y="352" w="16" h="32" xo="0" yo="0" id="10000009" name="inst_98B9E119" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="656" y="352" w="16" h="32" xo="0" yo="0" id="10000010" name="inst_FC29EB13" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="672" y="352" w="16" h="32" xo="0" yo="0" id="10000011" name="inst_188F77B7" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="688" y="352" w="16" h="32" xo="0" yo="0" id="10000012" name="inst_1175C476" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="704" y="352" w="16" h="32" xo="0" yo="0" id="10000013" name="inst_B4AEB685" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="720" y="352" w="16" h="32" xo="0" yo="0" id="10000014" name="inst_B8C3C977" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="BG_zone_1_trap" x="736" y="352" w="16" h="32" xo="0" yo="0" id="10000015" name="inst_EFB670F4" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
