@@ -58,7 +58,7 @@ plateStep = 0;
             <kind>1</kind>
             <string>/// "Go to Sonic Has Passed"
 
-room_restart();
+room_goto_next();
 </string>
           </argument>
         </arguments>

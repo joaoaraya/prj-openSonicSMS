@@ -229,7 +229,7 @@
       <sprite>sprites\SPR_button_dpad_press</sprite>
       <sprite>sprites\SPR_button_action</sprite>
       <sprite>sprites\SPR_button_action_press</sprite>
-      <sprite>sprites\SPR_button_del</sprite>
+      <sprite>sprites\SPR_button_delete</sprite>
     </sprites>
     <sprites name="Effects">
       <sprite>sprites\SPR_get_stars</sprite>
@@ -245,6 +245,10 @@
     <scripts name="System">
       <script>scripts\SCR_screen.gml</script>
       <script>scripts\SCR_buttons.gml</script>
+    </scripts>
+    <scripts name="Data">
+      <script>scripts\SCR_load_game.gml</script>
+      <script>scripts\SCR_load_cards.gml</script>
     </scripts>
     <scripts name="Player">
       <scripts name="View">
@@ -291,6 +295,14 @@
       </objects>
       <objects name="Data Select">
         <object>objects\OBJ_menu_data_select</object>
+        <object>objects\OBJ_menu_data_button_del</object>
+        <objects name="Slots">
+          <object>objects\OBJ_menu_data_card_1</object>
+          <object>objects\OBJ_menu_data_card_2</object>
+          <object>objects\OBJ_menu_data_card_3</object>
+          <object>objects\OBJ_menu_data_card_4</object>
+          <object>objects\OBJ_menu_data_card_5</object>
+        </objects>
       </objects>
     </objects>
     <objects name="Controls">

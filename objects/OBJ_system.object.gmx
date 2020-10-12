@@ -224,9 +224,7 @@ ini_close ();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Game Slots
-
-// -------------------- Create Data -------------------- 
+            <string>/// Create Data Slots
 
 for (i = 0; i &lt; global.memoryCards; i++)
 {
@@ -246,21 +244,29 @@ for (i = 0; i &lt; global.memoryCards; i++)
     // Close Archive
     ini_close ();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Load Data Slots
 
-// -------------------- Read Data -------------------- 
-
-// Open Archive
-ini_open ("saveGame" + string(global.saveGame) + ".ini");
-
-// Load Varibles
-global.life = ini_read_real ("classicMode", "life", global.life);
-global.chaoEmerald = ini_read_real ("classicMode", "chaoEmerald", global.chaoEmerald);
-global.zoneGoto = ini_read_real ("classicMode", "zoneGoto", global.zoneGoto);
-global.specialStageGoto = ini_read_real ("classicMode", "specialStageGoto", global.specialStageGoto);
-global.allZones = ini_read_real ("classicMode", "allZones", global.allZones);
-
-// Close Archive
-ini_close ();
+SCR_load_game();
 </string>
           </argument>
         </arguments>
