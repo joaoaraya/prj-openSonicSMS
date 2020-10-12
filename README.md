@@ -1,6 +1,6 @@
 # Open Sonic SMS
 
-Sonic The Hedgehog - Master System Engine by João Araya
+Sonic The Hedgehog - Master System (Fan Game Engine)
 
 **Work on Game Maker Studio 1.3 or higher**
 
