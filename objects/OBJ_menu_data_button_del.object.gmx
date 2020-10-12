@@ -71,6 +71,7 @@ if (press == true)
         // Default Values
         ini_write_real ("classicMode", "life", 3);
         ini_write_real ("classicMode", "chaoEmerald", 0);
+        ini_write_real ("classicMode", "score", 0);
         ini_write_real ("classicMode", "zoneGoto", 1);
         ini_write_real ("classicMode", "specialStageGoto", 1);
         ini_write_real ("classicMode", "allZones", false);
